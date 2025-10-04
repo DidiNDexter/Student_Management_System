@@ -1,6 +1,6 @@
 # Contributing to Student Management System
 
-Thanks for your interest in contributing to **Student Management System** — every contribution helps, and it’s especially appreciated for Hacktoberfest 2025! 🎉
+Thanks for your interest in contributing to **Student Management System**, every contribution helps, and it’s especially appreciated for Hacktoberfest 2025! 🎉
 
 This document explains how to file issues, propose changes, and submit pull requests so your contribution can be reviewed and merged quickly.
 
@@ -8,7 +8,6 @@ This document explains how to file issues, propose changes, and submit pull requ
 
 ## Table of Contents
 
-* [Code of Conduct](#code-of-conduct)
 * [Getting Started](#getting-started)
 * [How to Contribute](#how-to-contribute)
 
@@ -21,12 +20,6 @@ This document explains how to file issues, propose changes, and submit pull requ
 * [Testing & Manual QA](#testing--manual-qa)
 * [Maintainers & Review Process](#maintainers--review-process)
 * [Good First Issues / Hacktoberfest Tips](#good-first-issues--hacktoberfest-tips)
-
----
-
-## Code of Conduct
-
-Be respectful, kind, and inclusive. Treat contributors the way you want to be treated. If you encounter inappropriate behavior, open an issue and tag the maintainers.
 
 ---
 
@@ -171,7 +164,7 @@ This is a C# WinForms project targeting .NET Framework 4.8.1. Keep code consiste
 
 ## Maintainers & Review Process
 
-* PRs will be reviewed by project maintainers. Expect feedback requesting changes — please address review comments by pushing additional commits to the same branch.
+* PRs will be reviewed by project maintainers. Expect feedback requesting changes, please address review comments by pushing additional commits to the same branch.
 * Keep PRs focused: one feature/fix per PR is ideal.
 
 ---
@@ -183,7 +176,6 @@ If you’re participating in Hacktoberfest 2025, look for issues labeled `good-f
 * UI polish for forms (labels, validation messages)
 * Add client-side validation before saving to DB
 * Improve README with screenshots and setup steps for newbies
-* Add a CONTRIBUTING.md (this file!) and a simple issue template
 
 ---
 
