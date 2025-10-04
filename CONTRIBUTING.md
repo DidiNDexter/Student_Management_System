@@ -133,7 +133,7 @@ This is a C# WinForms project targeting .NET Framework 4.8.1. Keep code consiste
 
 * Follow standard C# naming conventions (PascalCase for types and methods, camelCase for parameters and local variables).
 * Keep methods small and single-purpose.
-* Avoid hard-coded connection strings — use a single configuration location or clearly commented placeholders.
+* Avoid hard-coded connection strings, use a single configuration location or clearly commented placeholders.
 * When adding SQL, prefer parameterized queries or stored procedures to avoid SQL injection.
 * Add comments where logic is non-obvious.
 
@@ -183,4 +183,4 @@ If you’re participating in Hacktoberfest 2025, look for issues labeled `good-f
 
 Thanks for taking the time to improve the project — PRs, issues, and suggestions are all welcome. If you need help getting started, open an issue with the label `help wanted` and describe what you'd like to work on.
 
-Happy hacking 🕷️
+Happy hacking!!!
