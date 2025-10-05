@@ -306,9 +306,9 @@
             // 
             this.label12.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold);
             this.label12.ForeColor = System.Drawing.Color.FromArgb(41, 128, 185);
-            this.label12.Location = new System.Drawing.Point(0, 20);
+            this.label12.Location = new System.Drawing.Point(200, 20);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(988, 45);
+            this.label12.Size = new System.Drawing.Size(588, 45);
             this.label12.TabIndex = 13;
             this.label12.Text = "ADMIT STUDENT";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
