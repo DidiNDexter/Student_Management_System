@@ -1,48 +1,57 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace SMS
 {
-    internal class UniqueLCGenerator
+    public static class UniqueLCGenerator
     {
+        private static Random random = new Random();
 
-    }
-    class UniqueIDGenerator
-    {
-        //private const string Prefix = "STUD/";
-        //private const int IdLength = 8;
-        //private HashSet<string> generatedIds;
-        //private Random random;
+        public static string GenerateUniqueLC()
+        {
+            string lcNo;
+            bool isUnique = false;
+            int attempts = 0;
 
-        //public UniqueIDGenerator()
-        //{
-        //    generatedIds = new HashSet<string>();
-        //    random = new Random();
-        //}
+            do
+            {
+                string year = DateTime.Now.Year.ToString();
+                string randomNum = random.Next(1000, 9999).ToString();
+                lcNo = $"LC-{year}-{randomNum}";
+                isUnique = CheckUniqueness(lcNo);
+                attempts++;
 
-        //private string GenerateRandomNumberString(int length)
-        //{
-        //    char[] digits = new char[length];
-        //    for (int i = 0; i < length; i++)
-        //    {
-        //        digits[i] = (char)('0' + random.Next(10));
-        //    }
-        //    return new string(digits);
-        //}
+                if (attempts >= 100)
+                {
+                    lcNo = $"LC-{year}-{DateTime.Now.Ticks % 10000}";
+                    break;
+                }
+            } while (!isUnique);
 
-        //public string GetNextUniqueId()
-        //{
-        //    string uniqueId;
-        //    do
-        //    {
-        //        uniqueId = GenerateRandomNumberString(IdLength);
-        //    } while (generatedIds.Contains(uniqueId));
+            return lcNo;
+        }
 
-        //    generatedIds.Add(uniqueId);
-        //    return $"{Prefix}{uniqueId}";
-        //}
+        private static bool CheckUniqueness(string lcNo)
+        {
+            try
+            {
+                bool wasOpen = WControls.connection.State == ConnectionState.Open;
+                if (!wasOpen) WControls.DBConOpen();
+
+                SqlCommand cmd = new SqlCommand(
+                    "SELECT COUNT(*) FROM Student WHERE Library_Card_No=@LCNo",
+                    WControls.connection);
+                cmd.Parameters.AddWithValue("@LCNo", lcNo);
+                int count = (int)cmd.ExecuteScalar();
+
+                if (!wasOpen) WControls.DBConClose();
+                return count == 0;
+            }
+            catch
+            {
+                return true;
+            }
+        }
     }
 }
