@@ -40,7 +40,7 @@ namespace SMS
                 if (!wasOpen) WControls.DBConOpen();
 
                 SqlCommand cmd = new SqlCommand(
-                    "SELECT COUNT(*) FROM Student WHERE Library_Card_No=@LCNo",
+                    "SELECT COUNT(*) FROM Student WHERE Library_Card=@LCNo",
                     WControls.connection);
                 cmd.Parameters.AddWithValue("@LCNo", lcNo);
                 int count = (int)cmd.ExecuteScalar();

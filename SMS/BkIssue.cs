@@ -63,9 +63,9 @@ namespace SMS
                 if (table.Rows.Count > 0)
                 {
                     Student_id_tbx.Text = table.Rows[0]["Student_id"].ToString();
-                    StudentName_tbx.Text = table.Rows[0]["Student_Name"].ToString();
-                    Sec_tbx.Text = table.Rows[0]["Section"].ToString();
-                    Library_tbx.Text = table.Rows[0]["Library_Card_No"].ToString();
+                    StudentName_tbx.Text = table.Rows[0]["Name"].ToString();
+                    Sec_tbx.Text = table.Rows[0]["Sec"].ToString();
+                    Library_tbx.Text = table.Rows[0]["Library_Card"].ToString();
 
                     BookNames_tbx.Clear();
                     selectedBooks.Clear();
@@ -136,9 +136,10 @@ namespace SMS
 
             try
             {
+                WControls.DBConClose();  // Close first if open
                 WControls.DBConOpen();
                 SqlCommand cmd = new SqlCommand(
-                    "UPDATE Student SET Library_Card_No=@LCNo WHERE Student_id=@StudentId",
+                    "UPDATE Student SET Library_Card=@LCNo WHERE Student_id=@StudentId",
                     WControls.connection);
                 cmd.Parameters.AddWithValue("@LCNo", Library_tbx.Text.Trim());
                 cmd.Parameters.AddWithValue("@StudentId", Student_id_tbx.Text.Trim());
@@ -186,8 +187,8 @@ namespace SMS
                 {
                     SqlCommand cmd = new SqlCommand(
                         @"INSERT INTO BookIssue (Student_id, Student_Name, Book_Name, Issue_Date, Library_Card_No, Section) 
-                          VALUES (@StudentId, @StudentName, @BookName, @IssueDate, @LCNo, @Section)",
-                        WControls.connection);
+                        VALUES (@StudentId, @StudentName, @BookName, @IssueDate, @LCNo, @Section)",
+                         WControls.connection);
 
                     cmd.Parameters.AddWithValue("@StudentId", Student_id_tbx.Text.Trim());
                     cmd.Parameters.AddWithValue("@StudentName", StudentName_tbx.Text.Trim());
