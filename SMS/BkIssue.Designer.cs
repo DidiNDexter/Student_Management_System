@@ -375,6 +375,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
+            // ADD THESE 4 LINES HERE:
+            this.Browse_btn.Click += new System.EventHandler(this.Browse_btn_Click);
+            this.Update_btn.Click += new System.EventHandler(this.Update_btn_Click);
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button2.Click += new System.EventHandler(this.button2_Click);
         }
 
         #endregion
